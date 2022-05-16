@@ -14,7 +14,29 @@
 		1DC9F7F528193A4200EA4333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DC9F7F428193A4200EA4333 /* Assets.xcassets */; };
 		1DC9F7F828193A4200EA4333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DC9F7F628193A4200EA4333 /* LaunchScreen.storyboard */; };
 		1DC9F7FB28193A4200EA4333 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F7FA28193A4200EA4333 /* main.m */; };
+		1DC9F80928193A6C00EA4333 /* DBLogCollectKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F80828193A6C00EA4333 /* DBLogCollectKit.m */; };
+		1DC9F80A28193A6C00EA4333 /* DBLogCollectKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1DC9F80728193A6C00EA4333 /* DBLogCollectKit.h */; };
+		1DC9F81428193BA300EA4333 /* DBUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F80E28193BA300EA4333 /* DBUncaughtExceptionHandler.m */; };
+		1DC9F81528193BA300EA4333 /* DBNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F81028193BA300EA4333 /* DBNetworkHelper.m */; };
+		1DC9F81628193BA300EA4333 /* DBLogerConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F81328193BA300EA4333 /* DBLogerConfigure.m */; };
+		1DCDF058282A13050065D91A /* NSString+DBCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDF057282A13050065D91A /* NSString+DBCrypto.m */; };
+		1DE0847D2832249A00A45F37 /* DBCommonConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0847C2832249A00A45F37 /* DBCommonConst.m */; };
+		1DE0848028322FE300A45F37 /* libDBLogCollectKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC9F80528193A6C00EA4333 /* libDBLogCollectKit.a */; };
+		1DE0848328323EC000A45F37 /* ZXPUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0848128323EC000A45F37 /* ZXPUnicode.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1DC9F80328193A6C00EA4333 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				1DC9F80A28193A6C00EA4333 /* DBLogCollectKit.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1DC9F7E528193A4100EA4333 /* DBLogerCollectorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBLogerCollectorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -29,10 +51,35 @@
 		1DC9F7F728193A4200EA4333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DC9F7F928193A4200EA4333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DC9F7FA28193A4200EA4333 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1DC9F80528193A6C00EA4333 /* libDBLogCollectKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDBLogCollectKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DC9F80728193A6C00EA4333 /* DBLogCollectKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBLogCollectKit.h; sourceTree = "<group>"; };
+		1DC9F80828193A6C00EA4333 /* DBLogCollectKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBLogCollectKit.m; sourceTree = "<group>"; };
+		1DC9F80E28193BA300EA4333 /* DBUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUncaughtExceptionHandler.m; sourceTree = "<group>"; };
+		1DC9F80F28193BA300EA4333 /* DBNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNetworkHelper.h; sourceTree = "<group>"; };
+		1DC9F81028193BA300EA4333 /* DBNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNetworkHelper.m; sourceTree = "<group>"; };
+		1DC9F81128193BA300EA4333 /* DBUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		1DC9F81228193BA300EA4333 /* DBLogerConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLogerConfigure.h; sourceTree = "<group>"; };
+		1DC9F81328193BA300EA4333 /* DBLogerConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLogerConfigure.m; sourceTree = "<group>"; };
+		1DCDF055282A0F740065D91A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1DCDF056282A13050065D91A /* NSString+DBCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DBCrypto.h"; sourceTree = "<group>"; };
+		1DCDF057282A13050065D91A /* NSString+DBCrypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DBCrypto.m"; sourceTree = "<group>"; };
+		1DE0847B2832249A00A45F37 /* DBCommonConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCommonConst.h; sourceTree = "<group>"; };
+		1DE0847C2832249A00A45F37 /* DBCommonConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCommonConst.m; sourceTree = "<group>"; };
+		1DE0847E2832259B00A45F37 /* DBEnmerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBEnmerator.h; sourceTree = "<group>"; };
+		1DE0848128323EC000A45F37 /* ZXPUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXPUnicode.m; sourceTree = "<group>"; };
+		1DE0848228323EC000A45F37 /* ZXPUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXPUnicode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1DC9F7E228193A4100EA4333 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DE0848028322FE300A45F37 /* libDBLogCollectKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DC9F80228193A6C00EA4333 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,7 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				1DC9F7E728193A4100EA4333 /* DBLogerCollectorDemo */,
+				1DC9F80628193A6C00EA4333 /* DBLogCollectKit */,
 				1DC9F7E628193A4100EA4333 /* Products */,
+				1DE0847F28322FE300A45F37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				1DC9F7E528193A4100EA4333 /* DBLogerCollectorDemo.app */,
+				1DC9F80528193A6C00EA4333 /* libDBLogCollectKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,13 +117,43 @@
 				1DC9F7EC28193A4100EA4333 /* SceneDelegate.m */,
 				1DC9F7EE28193A4100EA4333 /* ViewController.h */,
 				1DC9F7EF28193A4100EA4333 /* ViewController.m */,
+				1DE0848228323EC000A45F37 /* ZXPUnicode.h */,
+				1DE0848128323EC000A45F37 /* ZXPUnicode.m */,
 				1DC9F7F128193A4100EA4333 /* Main.storyboard */,
 				1DC9F7F428193A4200EA4333 /* Assets.xcassets */,
 				1DC9F7F628193A4200EA4333 /* LaunchScreen.storyboard */,
 				1DC9F7F928193A4200EA4333 /* Info.plist */,
 				1DC9F7FA28193A4200EA4333 /* main.m */,
+				1DCDF055282A0F740065D91A /* README.md */,
 			);
 			path = DBLogerCollectorDemo;
+			sourceTree = "<group>";
+		};
+		1DC9F80628193A6C00EA4333 /* DBLogCollectKit */ = {
+			isa = PBXGroup;
+			children = (
+				1DC9F80728193A6C00EA4333 /* DBLogCollectKit.h */,
+				1DC9F80828193A6C00EA4333 /* DBLogCollectKit.m */,
+				1DCDF056282A13050065D91A /* NSString+DBCrypto.h */,
+				1DCDF057282A13050065D91A /* NSString+DBCrypto.m */,
+				1DC9F81228193BA300EA4333 /* DBLogerConfigure.h */,
+				1DC9F81328193BA300EA4333 /* DBLogerConfigure.m */,
+				1DC9F80F28193BA300EA4333 /* DBNetworkHelper.h */,
+				1DC9F81028193BA300EA4333 /* DBNetworkHelper.m */,
+				1DC9F81128193BA300EA4333 /* DBUncaughtExceptionHandler.h */,
+				1DC9F80E28193BA300EA4333 /* DBUncaughtExceptionHandler.m */,
+				1DE0847B2832249A00A45F37 /* DBCommonConst.h */,
+				1DE0847C2832249A00A45F37 /* DBCommonConst.m */,
+				1DE0847E2832259B00A45F37 /* DBEnmerator.h */,
+			);
+			path = DBLogCollectKit;
+			sourceTree = "<group>";
+		};
+		1DE0847F28322FE300A45F37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +176,23 @@
 			productReference = 1DC9F7E528193A4100EA4333 /* DBLogerCollectorDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1DC9F80428193A6C00EA4333 /* DBLogCollectKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DC9F80B28193A6C00EA4333 /* Build configuration list for PBXNativeTarget "DBLogCollectKit" */;
+			buildPhases = (
+				1DC9F80128193A6C00EA4333 /* Sources */,
+				1DC9F80228193A6C00EA4333 /* Frameworks */,
+				1DC9F80328193A6C00EA4333 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DBLogCollectKit;
+			productName = DBLogCollectKit;
+			productReference = 1DC9F80528193A6C00EA4333 /* libDBLogCollectKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -106,6 +203,9 @@
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					1DC9F7E428193A4100EA4333 = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					1DC9F80428193A6C00EA4333 = {
 						CreatedOnToolsVersion = 13.3;
 					};
 				};
@@ -124,6 +224,7 @@
 			projectRoot = "";
 			targets = (
 				1DC9F7E428193A4100EA4333 /* DBLogerCollectorDemo */,
+				1DC9F80428193A6C00EA4333 /* DBLogCollectKit */,
 			);
 		};
 /* End PBXProject section */
@@ -149,7 +250,21 @@
 				1DC9F7F028193A4100EA4333 /* ViewController.m in Sources */,
 				1DC9F7EA28193A4100EA4333 /* AppDelegate.m in Sources */,
 				1DC9F7FB28193A4200EA4333 /* main.m in Sources */,
+				1DE0848328323EC000A45F37 /* ZXPUnicode.m in Sources */,
 				1DC9F7ED28193A4100EA4333 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DC9F80128193A6C00EA4333 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DC9F80928193A6C00EA4333 /* DBLogCollectKit.m in Sources */,
+				1DCDF058282A13050065D91A /* NSString+DBCrypto.m in Sources */,
+				1DE0847D2832249A00A45F37 /* DBCommonConst.m in Sources */,
+				1DC9F81628193BA300EA4333 /* DBLogerConfigure.m in Sources */,
+				1DC9F81528193BA300EA4333 /* DBNetworkHelper.m in Sources */,
+				1DC9F81428193BA300EA4333 /* DBUncaughtExceptionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,11 +415,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shawlin.linx.DBLogerCollectorDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -327,14 +444,42 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shawlin.linx.DBLogerCollectorDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1DC9F80C28193A6C00EA4333 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6K53WJAQ2L;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1DC9F80D28193A6C00EA4333 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6K53WJAQ2L;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -356,6 +501,15 @@
 			buildConfigurations = (
 				1DC9F7FF28193A4200EA4333 /* Debug */,
 				1DC9F80028193A4200EA4333 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DC9F80B28193A6C00EA4333 /* Build configuration list for PBXNativeTarget "DBLogCollectKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DC9F80C28193A6C00EA4333 /* Debug */,
+				1DC9F80D28193A6C00EA4333 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

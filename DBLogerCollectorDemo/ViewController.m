@@ -6,6 +6,8 @@
 //
 
 #import "ViewController.h"
+#import "DBNetworkHelper.h"
+#import "DBLogCollectKit.h"
 
 @interface ViewController ()
 
@@ -15,7 +17,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self uploadLogInfo];
+}
+
+- (void)uploadLogInfo {
+    DBLogCollectKit *collectKit = [DBLogCollectKit sharedInstance];
+    [collectKit configureDefault];
+//    [collectKit logMessageWithLevel:DBLogLevelDebug message:@"this is a test case"];
+    
+    DBCollectLog(DBLogLevelDebug, @"123--%@",@(456));
+    
+
 }
 
 

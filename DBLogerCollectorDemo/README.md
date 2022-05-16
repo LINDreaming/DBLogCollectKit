@@ -1,0 +1,12 @@
+#  TODO
+
+1. is can send report when app is crash ?
+
+2. upload the crashs info.
+
+16123442912fd2738453713772dee66464c238019c2352bd87f7ecce5504959b
+
+
+appName_chrome_appSystemVersion__appVersion_56.7_businessType_bbyc_ios_language_zh_level_info_systemVersion_windows7_time_1652336898237_userid_1111
+
+appName_chrome_appVersion_56.7_businessType_bbyc_ios_language_zh_level_info_systemVersion_windows7_time_1652336898237_userid_1111
