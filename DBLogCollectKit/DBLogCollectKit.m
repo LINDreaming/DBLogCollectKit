@@ -8,6 +8,13 @@
 #import "DBLogCollectKit.h"
 #import "DBLogerConfigure.h"
 #import "DBNetworkHelper.h"
+#import "DBPermanentThread.h"
+#import "DBUncaughtExceptionHandler.h"
+
+@interface DBLogCollectKit ()
+@property(nonatomic,strong)DBPermanentThread * thread;
+
+@end
 
 @implementation DBLogCollectKit
 
@@ -61,7 +68,26 @@ DEFINE_SINGLETON(DBLogCollectKit)
 // setting the default format
 
 - (void)configureDefault {
-    [self configureServiceInfo:nil];
+    if (!self.thread) {
+        self.thread = [[DBPermanentThread alloc]init];
+        DBInstallUncaughtExceptionHandler();
+        [self configureServiceInfo:nil];
+    }
+    NSString *exceptionPath = [[DBUncaughtExceptionHandler shareInstance] exceptionFilePath];
+    NSError *error;
+    BOOL ret = [[NSFileManager defaultManager] fileExistsAtPath:exceptionPath];
+    if (!ret) {
+        return;
+    }
+    NSString *string = [NSString stringWithContentsOfFile:exceptionPath encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        DBCollectLog(DBLogLevelDebug,@"%@",error.description);
+    }else {
+        if (string) {
+            DBCollectLog(DBLogLevelDebug,@"%@",string); // upload the local file
+            [[NSFileManager defaultManager] removeItemAtPath:exceptionPath error:&error]; // remove the local file
+        }
+    }
 }
 
 - (void)configureServiceInfo:(DBLogerConfigure *)model {
@@ -77,17 +103,17 @@ DEFINE_SINGLETON(DBLogCollectKit)
 
 
 - (void)logWithLevel:(DBLogLevel)level format:(NSString *)format, ... {
-    NSLog(@"level:%@",@(level));
     // 1. 首先创建多参数列表
     va_list args;
     // 2. 开始初始化参数, start会从format中 依次提取参数, 类似于类结构体中的偏移量 offset 的 方式
     va_start(args, format);
     NSString *msg = [[NSString alloc] initWithFormat:format arguments:args];
-    // 3. end 必须添加, 具体可参考 ?
+    // 3. end 必须添加
     va_end(args);
-    NSLog(@"log message :%@",msg);
-    [DBNetworkHelper uploadLevel:level userMsg:msg];
-
+    [self.thread executeTask:^{
+        NSLog(@"log level:%@ message :%@",@(level),msg);
+        [DBNetworkHelper uploadLevel:level userMsg:msg];
+    }];
 }
 
 @end

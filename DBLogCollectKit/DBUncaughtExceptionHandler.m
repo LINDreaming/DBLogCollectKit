@@ -11,6 +11,8 @@
 #include <libkern/OSAtomic.h>
 #include <execinfo.h>
 #import "DBCommonConst.h"
+#import "DBLogCollectKit.h"
+
 
 NSString * const DBUncaughtExceptionHandlerSignalExceptionName = @"DBUncaughtExceptionHandlerSignalExceptionName";
 NSString * const DBUncaughtExceptionHandlerSignalKey = @"DBUncaughtExceptionHandlerSignalKey";
@@ -68,7 +70,6 @@ static NSUncaughtExceptionHandler *_previousHandler;
     [handle seekToEndOfFile];
     [handle writeData:[exceptionMessage dataUsingEncoding:NSUTF8StringEncoding]];
     [handle closeFile];
-    //NSLog(@"%@", filePath);
 }
 - (void)db_handleException:(NSException *)exception {
     
@@ -94,12 +95,12 @@ static NSUncaughtExceptionHandler *_previousHandler;
                 
                 //filter category and system class
 //                if (![className hasSuffix:@")"] && bundle == [NSBundle mainBundle]) {
-                    if ([className hasPrefix:@"DB"]) {
+//                    if ([className hasPrefix:@"DB"]) {
 //                        NSLog(@"当前崩溃在SDK中");
                         [self validateAndSaveCriticalApplicationData:exception];
-                    }else {
-//                        NSLog(@"当前崩溃不在SDK中");
-                    }
+//                    }else {
+////                        NSLog(@"当前崩溃不在SDK中");
+//                    }
                     
                     mainCallStackSymbolMsg = tempCallStackSymbolMsg;
 //                }

@@ -27,10 +27,10 @@
     DBLogCollectKit *collectKit = [DBLogCollectKit sharedInstance];
     [collectKit configureDefault];
 //    [collectKit logMessageWithLevel:DBLogLevelDebug message:@"this is a test case"];
-    
     DBCollectLog(DBLogLevelDebug, @"123--%@",@(456));
     
-
+//    NSArray *array = @[];
+//    array[1];
 }
 
 

@@ -23,6 +23,7 @@
 		1DE0847D2832249A00A45F37 /* DBCommonConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0847C2832249A00A45F37 /* DBCommonConst.m */; };
 		1DE0848028322FE300A45F37 /* libDBLogCollectKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC9F80528193A6C00EA4333 /* libDBLogCollectKit.a */; };
 		1DE0848328323EC000A45F37 /* ZXPUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0848128323EC000A45F37 /* ZXPUnicode.m */; };
+		1DE0848928326B6E00A45F37 /* DBPermanentThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0848828326B6E00A45F37 /* DBPermanentThread.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,8 @@
 		1DE0847E2832259B00A45F37 /* DBEnmerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBEnmerator.h; sourceTree = "<group>"; };
 		1DE0848128323EC000A45F37 /* ZXPUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXPUnicode.m; sourceTree = "<group>"; };
 		1DE0848228323EC000A45F37 /* ZXPUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXPUnicode.h; sourceTree = "<group>"; };
+		1DE0848728326B6E00A45F37 /* DBPermanentThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPermanentThread.h; sourceTree = "<group>"; };
+		1DE0848828326B6E00A45F37 /* DBPermanentThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPermanentThread.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				1DC9F80E28193BA300EA4333 /* DBUncaughtExceptionHandler.m */,
 				1DE0847B2832249A00A45F37 /* DBCommonConst.h */,
 				1DE0847C2832249A00A45F37 /* DBCommonConst.m */,
+				1DE0848728326B6E00A45F37 /* DBPermanentThread.h */,
+				1DE0848828326B6E00A45F37 /* DBPermanentThread.m */,
 				1DE0847E2832259B00A45F37 /* DBEnmerator.h */,
 			);
 			path = DBLogCollectKit;
@@ -260,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DC9F80928193A6C00EA4333 /* DBLogCollectKit.m in Sources */,
+				1DE0848928326B6E00A45F37 /* DBPermanentThread.m in Sources */,
 				1DCDF058282A13050065D91A /* NSString+DBCrypto.m in Sources */,
 				1DE0847D2832249A00A45F37 /* DBCommonConst.m in Sources */,
 				1DC9F81628193BA300EA4333 /* DBLogerConfigure.m in Sources */,
