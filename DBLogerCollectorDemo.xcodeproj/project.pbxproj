@@ -15,27 +15,32 @@
 		1DC9F7F828193A4200EA4333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DC9F7F628193A4200EA4333 /* LaunchScreen.storyboard */; };
 		1DC9F7FB28193A4200EA4333 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F7FA28193A4200EA4333 /* main.m */; };
 		1DC9F80928193A6C00EA4333 /* DBLogCollectKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F80828193A6C00EA4333 /* DBLogCollectKit.m */; };
-		1DC9F80A28193A6C00EA4333 /* DBLogCollectKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1DC9F80728193A6C00EA4333 /* DBLogCollectKit.h */; };
-		1DC9F81428193BA300EA4333 /* DBUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F80E28193BA300EA4333 /* DBUncaughtExceptionHandler.m */; };
-		1DC9F81528193BA300EA4333 /* DBNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F81028193BA300EA4333 /* DBNetworkHelper.m */; };
+		1DC9F80A28193A6C00EA4333 /* DBLogCollectKit.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 1DC9F80728193A6C00EA4333 /* DBLogCollectKit.h */; };
+		1DC9F81428193BA300EA4333 /* DBFUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F80E28193BA300EA4333 /* DBFUncaughtExceptionHandler.m */; };
+		1DC9F81528193BA300EA4333 /* DBFNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F81028193BA300EA4333 /* DBFNetworkHelper.m */; };
 		1DC9F81628193BA300EA4333 /* DBLogerConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F81328193BA300EA4333 /* DBLogerConfigure.m */; };
 		1DCDF058282A13050065D91A /* NSString+DBCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDF057282A13050065D91A /* NSString+DBCrypto.m */; };
-		1DE0847D2832249A00A45F37 /* DBCommonConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0847C2832249A00A45F37 /* DBCommonConst.m */; };
+		1DE0847D2832249A00A45F37 /* DBFCommonConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0847C2832249A00A45F37 /* DBFCommonConst.m */; };
 		1DE0848028322FE300A45F37 /* libDBLogCollectKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC9F80528193A6C00EA4333 /* libDBLogCollectKit.a */; };
 		1DE0848328323EC000A45F37 /* ZXPUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0848128323EC000A45F37 /* ZXPUnicode.m */; };
 		1DE0848928326B6E00A45F37 /* DBPermanentThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0848828326B6E00A45F37 /* DBPermanentThread.m */; };
+		1DE0848A283355C300A45F37 /* DBEnmerator.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 1DE0847E2832259B00A45F37 /* DBEnmerator.h */; };
+		1DE0848B283374BE00A45F37 /* DBLogerConfigure.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 1DC9F81228193BA300EA4333 /* DBLogerConfigure.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1DC9F80328193A6C00EA4333 /* CopyFiles */ = {
+		1DC9F80328193A6C00EA4333 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = "include/$(PRODUCT_NAME)";
+			buildActionMask = 12;
+			dstPath = "$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				1DC9F80A28193A6C00EA4333 /* DBLogCollectKit.h in CopyFiles */,
+				1DE0848B283374BE00A45F37 /* DBLogerConfigure.h in Copy Files */,
+				1DE0848A283355C300A45F37 /* DBEnmerator.h in Copy Files */,
+				1DC9F80A28193A6C00EA4333 /* DBLogCollectKit.h in Copy Files */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -55,17 +60,17 @@
 		1DC9F80528193A6C00EA4333 /* libDBLogCollectKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDBLogCollectKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DC9F80728193A6C00EA4333 /* DBLogCollectKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBLogCollectKit.h; sourceTree = "<group>"; };
 		1DC9F80828193A6C00EA4333 /* DBLogCollectKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBLogCollectKit.m; sourceTree = "<group>"; };
-		1DC9F80E28193BA300EA4333 /* DBUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBUncaughtExceptionHandler.m; sourceTree = "<group>"; };
-		1DC9F80F28193BA300EA4333 /* DBNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBNetworkHelper.h; sourceTree = "<group>"; };
-		1DC9F81028193BA300EA4333 /* DBNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBNetworkHelper.m; sourceTree = "<group>"; };
-		1DC9F81128193BA300EA4333 /* DBUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		1DC9F80E28193BA300EA4333 /* DBFUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFUncaughtExceptionHandler.m; sourceTree = "<group>"; };
+		1DC9F80F28193BA300EA4333 /* DBFNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFNetworkHelper.h; sourceTree = "<group>"; };
+		1DC9F81028193BA300EA4333 /* DBFNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFNetworkHelper.m; sourceTree = "<group>"; };
+		1DC9F81128193BA300EA4333 /* DBFUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFUncaughtExceptionHandler.h; sourceTree = "<group>"; };
 		1DC9F81228193BA300EA4333 /* DBLogerConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLogerConfigure.h; sourceTree = "<group>"; };
 		1DC9F81328193BA300EA4333 /* DBLogerConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLogerConfigure.m; sourceTree = "<group>"; };
 		1DCDF055282A0F740065D91A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1DCDF056282A13050065D91A /* NSString+DBCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DBCrypto.h"; sourceTree = "<group>"; };
 		1DCDF057282A13050065D91A /* NSString+DBCrypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DBCrypto.m"; sourceTree = "<group>"; };
-		1DE0847B2832249A00A45F37 /* DBCommonConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCommonConst.h; sourceTree = "<group>"; };
-		1DE0847C2832249A00A45F37 /* DBCommonConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCommonConst.m; sourceTree = "<group>"; };
+		1DE0847B2832249A00A45F37 /* DBFCommonConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFCommonConst.h; sourceTree = "<group>"; };
+		1DE0847C2832249A00A45F37 /* DBFCommonConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFCommonConst.m; sourceTree = "<group>"; };
 		1DE0847E2832259B00A45F37 /* DBEnmerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBEnmerator.h; sourceTree = "<group>"; };
 		1DE0848128323EC000A45F37 /* ZXPUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXPUnicode.m; sourceTree = "<group>"; };
 		1DE0848228323EC000A45F37 /* ZXPUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXPUnicode.h; sourceTree = "<group>"; };
@@ -141,12 +146,12 @@
 				1DCDF057282A13050065D91A /* NSString+DBCrypto.m */,
 				1DC9F81228193BA300EA4333 /* DBLogerConfigure.h */,
 				1DC9F81328193BA300EA4333 /* DBLogerConfigure.m */,
-				1DC9F80F28193BA300EA4333 /* DBNetworkHelper.h */,
-				1DC9F81028193BA300EA4333 /* DBNetworkHelper.m */,
-				1DC9F81128193BA300EA4333 /* DBUncaughtExceptionHandler.h */,
-				1DC9F80E28193BA300EA4333 /* DBUncaughtExceptionHandler.m */,
-				1DE0847B2832249A00A45F37 /* DBCommonConst.h */,
-				1DE0847C2832249A00A45F37 /* DBCommonConst.m */,
+				1DC9F80F28193BA300EA4333 /* DBFNetworkHelper.h */,
+				1DC9F81028193BA300EA4333 /* DBFNetworkHelper.m */,
+				1DC9F81128193BA300EA4333 /* DBFUncaughtExceptionHandler.h */,
+				1DC9F80E28193BA300EA4333 /* DBFUncaughtExceptionHandler.m */,
+				1DE0847B2832249A00A45F37 /* DBFCommonConst.h */,
+				1DE0847C2832249A00A45F37 /* DBFCommonConst.m */,
 				1DE0848728326B6E00A45F37 /* DBPermanentThread.h */,
 				1DE0848828326B6E00A45F37 /* DBPermanentThread.m */,
 				1DE0847E2832259B00A45F37 /* DBEnmerator.h */,
@@ -187,7 +192,7 @@
 			buildPhases = (
 				1DC9F80128193A6C00EA4333 /* Sources */,
 				1DC9F80228193A6C00EA4333 /* Frameworks */,
-				1DC9F80328193A6C00EA4333 /* CopyFiles */,
+				1DC9F80328193A6C00EA4333 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -267,10 +272,10 @@
 				1DC9F80928193A6C00EA4333 /* DBLogCollectKit.m in Sources */,
 				1DE0848928326B6E00A45F37 /* DBPermanentThread.m in Sources */,
 				1DCDF058282A13050065D91A /* NSString+DBCrypto.m in Sources */,
-				1DE0847D2832249A00A45F37 /* DBCommonConst.m in Sources */,
+				1DE0847D2832249A00A45F37 /* DBFCommonConst.m in Sources */,
 				1DC9F81628193BA300EA4333 /* DBLogerConfigure.m in Sources */,
-				1DC9F81528193BA300EA4333 /* DBNetworkHelper.m in Sources */,
-				1DC9F81428193BA300EA4333 /* DBUncaughtExceptionHandler.m in Sources */,
+				1DC9F81528193BA300EA4333 /* DBFNetworkHelper.m in Sources */,
+				1DC9F81428193BA300EA4333 /* DBFUncaughtExceptionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,11 +6,11 @@
 //  Copyright © 2016年 biaobei. All rights reserved.
 //
 
-#import "DBUncaughtExceptionHandler.h"
+#import "DBFUncaughtExceptionHandler.h"
 #import <UIKit/UIKit.h>
 #include <libkern/OSAtomic.h>
 #include <execinfo.h>
-#import "DBCommonConst.h"
+#import "DBFCommonConst.h"
 #import "DBLogCollectKit.h"
 
 
@@ -23,15 +23,14 @@ const NSInteger DBUncaughtExceptionHandlerSkipAddressCount = 4;
 const NSInteger DBUncaughtExceptionHandlerReportAddressCount = 5;
 static NSUncaughtExceptionHandler *_previousHandler;
 
-@interface DBUncaughtExceptionHandler ()
+@interface DBFUncaughtExceptionHandler ()
 @property (nonatomic, retain) NSString *logFilePath;
 @end
 
+@implementation DBFUncaughtExceptionHandler
 
-
-@implementation DBUncaughtExceptionHandler
 + (instancetype)shareInstance {
-    static DBUncaughtExceptionHandler *single = nil;
+    static DBFUncaughtExceptionHandler *single = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         single = [[self alloc]init];
@@ -57,14 +56,12 @@ static NSUncaughtExceptionHandler *_previousHandler;
     return backtrace;
 }
 
-
-
 - (void)validateAndSaveCriticalApplicationData:(NSException *)exception {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:_logFilePath]) {
         [fileManager createFileAtPath:_logFilePath contents:[@">>>>>>>程序异常日志<<<<<<<<\n" dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
     }
-    NSString *exceptionMessage = [NSString stringWithFormat:NSLocalizedString(@"\n********** %@ 异常原因如下: **********\n%@\n%@\n========== End ==========\n", nil), [DBCommonConst currentTimeString], [exception reason], [exception callStackSymbols]];
+    NSString *exceptionMessage = [NSString stringWithFormat:NSLocalizedString(@"\n********** %@ 异常原因如下: **********\n%@\n%@\n========== End ==========\n", nil), [DBFCommonConst currentTimeString], [exception reason], [exception callStackSymbols]];
     // 4.创建文件对接对象,文件对象此时针对文件，可读可写
     NSFileHandle *handle = [NSFileHandle fileHandleForUpdatingAtPath:_logFilePath];
     [handle seekToEndOfFile];
@@ -72,7 +69,6 @@ static NSUncaughtExceptionHandler *_previousHandler;
     [handle closeFile];
 }
 - (void)db_handleException:(NSException *)exception {
-    
     NSArray<NSString *>*callStackSymbols = [exception callStackSymbols];
 //    NSLog(@"堆栈%@",callStackSymbols);
     //mainCallStackSymbolMsg的格式为   +[类名 方法名]  或者 -[类名 方法名]
@@ -80,7 +76,6 @@ static NSUncaughtExceptionHandler *_previousHandler;
     //匹配出来的格式为 +[类名 方法名]  或者 -[类名 方法名]
     NSString *regularExpStr = @"[-\\+]\\[.+\\]";
     NSRegularExpression *regularExp = [[NSRegularExpression alloc] initWithPattern:regularExpStr options:NSRegularExpressionCaseInsensitive error:nil];
-    
     for (int index = 0; index < callStackSymbols.count; index++) {
         NSString *callStackSymbol = callStackSymbols[index];
         [regularExp enumerateMatchesInString:callStackSymbol options:NSMatchingReportProgress range:NSMakeRange(0, callStackSymbol.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
@@ -92,16 +87,14 @@ static NSUncaughtExceptionHandler *_previousHandler;
                 className = [className componentsSeparatedByString:@"["].lastObject;
 //                NSLog(@"崩溃的类名称：%@",className);
 //                NSBundle *bundle = [NSBundle bundleForClass:NSClassFromString(className)];
-                
                 //filter category and system class
 //                if (![className hasSuffix:@")"] && bundle == [NSBundle mainBundle]) {
 //                    if ([className hasPrefix:@"DB"]) {
 //                        NSLog(@"当前崩溃在SDK中");
                         [self validateAndSaveCriticalApplicationData:exception];
 //                    }else {
-////                        NSLog(@"当前崩溃不在SDK中");
+////                     NSLog(@"当前崩溃不在SDK中");
 //                    }
-                    
                     mainCallStackSymbolMsg = tempCallStackSymbolMsg;
 //                }
                 *stop = YES;
@@ -111,10 +104,8 @@ static NSUncaughtExceptionHandler *_previousHandler;
             break;
         }
     }
-    
 //    NSString * message = [NSString stringWithFormat:NSLocalizedString(@"DB异常原因如下:\n%@\n%@", nil), [exception reason], [[exception userInfo] objectForKey:DBUncaughtExceptionHandlerAddressesKey]];
 //    NSLog(@"%@",message);
-
     if (_previousHandler) {
         _previousHandler(exception);
     }
@@ -134,7 +125,7 @@ void DB_HandleException(NSException *exception) {
 //    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:[exception userInfo]];
 //    [userInfo setObject:callStack forKey:DBUncaughtExceptionHandlerAddressesKey];
 //    [[DBUncaughtExceptionHandler shareInstance] performSelectorOnMainThread:@selector(db_handleException:) withObject: [NSException exceptionWithName:[exception name] reason:[exception reason] userInfo:userInfo] waitUntilDone:YES];
-    [[DBUncaughtExceptionHandler shareInstance] db_handleException:exception];
+    [[DBFUncaughtExceptionHandler shareInstance] db_handleException:exception];
 }
 void DBSignalHandler(int signal) {
     int32_t exceptionCount = OSAtomicIncrement32(&DBUncaughtExceptionCount);
@@ -142,11 +133,11 @@ void DBSignalHandler(int signal) {
         return;
     }
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInt:signal] forKey:DBUncaughtExceptionHandlerSignalKey];
-    NSArray *callStack = [DBUncaughtExceptionHandler backtrace];
+    NSArray *callStack = [DBFUncaughtExceptionHandler backtrace];
     [userInfo setObject:callStack forKey:DBUncaughtExceptionHandlerAddressesKey];
-    [[DBUncaughtExceptionHandler shareInstance] performSelectorOnMainThread:@selector(db_handleException:) withObject: [NSException exceptionWithName:DBUncaughtExceptionHandlerSignalExceptionName reason: [NSString stringWithFormat: NSLocalizedString(@"Signal %d was raised.", nil), signal] userInfo: [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:signal] forKey:DBUncaughtExceptionHandlerSignalKey]] waitUntilDone:YES];
+    [[DBFUncaughtExceptionHandler shareInstance] performSelectorOnMainThread:@selector(db_handleException:) withObject: [NSException exceptionWithName:DBUncaughtExceptionHandlerSignalExceptionName reason: [NSString stringWithFormat: NSLocalizedString(@"Signal %d was raised.", nil), signal] userInfo: [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:signal] forKey:DBUncaughtExceptionHandlerSignalKey]] waitUntilDone:YES];
 }
-DBUncaughtExceptionHandler* DBInstallUncaughtExceptionHandler(void) {
+DBFUncaughtExceptionHandler* DBInstallUncaughtExceptionHandler(void) {
     _previousHandler = NSGetUncaughtExceptionHandler();
     NSSetUncaughtExceptionHandler(&DB_HandleException);
     signal(SIGABRT, DBSignalHandler);
@@ -155,6 +146,6 @@ DBUncaughtExceptionHandler* DBInstallUncaughtExceptionHandler(void) {
     signal(SIGFPE, DBSignalHandler);
     signal(SIGBUS, DBSignalHandler);
     signal(SIGPIPE, DBSignalHandler);
-    return [DBUncaughtExceptionHandler shareInstance];
+    return [DBFUncaughtExceptionHandler shareInstance];
 }
 

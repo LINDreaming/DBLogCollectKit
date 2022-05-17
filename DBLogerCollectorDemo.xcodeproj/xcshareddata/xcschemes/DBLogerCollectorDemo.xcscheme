@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1DC9F80428193A6C00EA4333"
-               BuildableName = "libDBLogCollectKit.a"
-               BlueprintName = "DBLogCollectKit"
+               BlueprintIdentifier = "1DC9F7E428193A4100EA4333"
+               BuildableName = "DBLogerCollectorDemo.app"
+               BlueprintName = "DBLogerCollectorDemo"
                ReferencedContainer = "container:DBLogerCollectorDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,7 +31,7 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1DC9F7E428193A4100EA4333"
+            BuildableName = "DBLogerCollectorDemo.app"
+            BlueprintName = "DBLogerCollectorDemo"
+            ReferencedContainer = "container:DBLogerCollectorDemo.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,15 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1DC9F80428193A6C00EA4333"
-            BuildableName = "libDBLogCollectKit.a"
-            BlueprintName = "DBLogCollectKit"
+            BlueprintIdentifier = "1DC9F7E428193A4100EA4333"
+            BuildableName = "DBLogerCollectorDemo.app"
+            BlueprintName = "DBLogerCollectorDemo"
             ReferencedContainer = "container:DBLogerCollectorDemo.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

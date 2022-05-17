@@ -6,21 +6,20 @@
 //  Copyright © 2019 biaobei. All rights reserved.
 //
 
-#import "DBNetworkHelper.h"
+#import "DBFNetworkHelper.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "NSString+DBCrypto.h"
 #import "DBLogerConfigure.h"
-#import "DBCommonConst.h"
+#import "DBFCommonConst.h"
 
 static NSString *DBUploadBoundary = @"DBUploadBoundary";
 #define DBEncode(string) [string dataUsingEncoding:NSUTF8StringEncoding]
 #define DBEnter [@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]
 
-@interface DBNetworkHelper ()<NSURLSessionDelegate>
-
+@interface DBFNetworkHelper ()<NSURLSessionDelegate>
 @end
 
-@implementation DBNetworkHelper
+@implementation DBFNetworkHelper
 
 //GET请求
 + (void)getWithUrlString:(NSString *)url parameters:(id)parameters success:(DBSuccessBlock)successBlock failure:(DBFailureBlock)failureBlock
@@ -196,8 +195,10 @@ static NSString *DBUploadBoundary = @"DBUploadBoundary";
 }
 
 + (void)uploadLevel:(DBLogLevel)level userMsg:(NSString *)msg  {
-    NSDictionary *parameters = [self getBodyInfoWithLevel:level content:msg];
-    NSString *auths = [self getAuthStringWithWithLevel:level content:msg];
+    NSString *content = [NSString stringWithFormat:@"%@:%@",[DBFCommonConst currentTimeString],msg];
+    NSString *time = [DBLogerConfigure sharedInstance].time;
+    NSDictionary *parameters = [self getBodyInfoWithLevel:level content:content time:time];
+    NSString *auths = [self getAuthStringWithWithLevel:level content:msg time:time];
     [self log_postWithAuth:auths witDictionary:parameters success:^(NSDictionary * _Nonnull data) {
         NSLog(@"data:%@",data);
     } failure:^(NSError * _Nonnull error) {
@@ -238,16 +239,16 @@ static NSString *DBUploadBoundary = @"DBUploadBoundary";
     [dataTask resume];  //开始请求
 }
 
-+ (NSDictionary *)getBodyInfoWithLevel:(DBLogLevel)level content:(NSString *)content {
-    NSDictionary *configureDict = [self getConfigureDictionaryWithLevel:level content:content];
++ (NSDictionary *)getBodyInfoWithLevel:(DBLogLevel)level content:(NSString *)content time:(NSString *)time{
+    NSDictionary *configureDict = [self getConfigureDictionaryWithLevel:level content:content time:time];
     NSDictionary *baseDict = [self getBaseInfoDictionary];
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:configureDict];
     [mutableDictionary setObject:baseDict forKey:@"baseInfo"];
     return mutableDictionary;
 }
 
-+ (NSString *)getAuthStringWithWithLevel:(DBLogLevel)level content:(NSString *)content {
-    NSDictionary *configureDict = [self getConfigureDictionaryWithLevel:level content:content];
++ (NSString *)getAuthStringWithWithLevel:(DBLogLevel)level content:(NSString *)content time:(NSString *)time {
+    NSDictionary *configureDict = [self getConfigureDictionaryWithLevel:level content:content time:time];
     NSDictionary *baseDict = [self getBaseInfoDictionary];
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:configureDict];
     [mutableDictionary addEntriesFromDictionary:baseDict];
@@ -258,14 +259,14 @@ static NSString *DBUploadBoundary = @"DBUploadBoundary";
     return shaString;
 }
 
-+ (NSDictionary *)getConfigureDictionaryWithLevel:(DBLogLevel)level content:(NSString *)content {
++ (NSDictionary *)getConfigureDictionaryWithLevel:(DBLogLevel)level content:(NSString *)content time:(NSString *)time  {
     NSString *leveStr = [self levelStringWithLevel:level];
     DBLogerConfigure *loger = [DBLogerConfigure sharedInstance];
     NSDictionary *dict = @{
         @"level":leveStr,
         @"userid":loger.userId,
         @"businessType":loger.businessType,
-        @"time":loger.time,
+        @"time":time,
         @"contentList":@[content],
     };
     return dict;

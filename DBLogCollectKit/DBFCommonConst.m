@@ -6,9 +6,9 @@
 //  Copyright © 2020 biaobei. All rights reserved.
 //
 
-#import "DBCommonConst.h"
+#import "DBFCommonConst.h"
 
-@implementation DBCommonConst
+@implementation DBFCommonConst
 
 + (NSString *)currentTimeString {
     //时间格式化

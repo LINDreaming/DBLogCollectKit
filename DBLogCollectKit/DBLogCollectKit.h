@@ -8,19 +8,20 @@
 #import <Foundation/Foundation.h>
 #import "DBLogerConfigure.h"
 #import "DBEnmerator.h"
-//#define join_string1(str1 ,str2) [NSString stringWithFormat:@"%@%@",str1, str2]
 
 #define DBCollectLog(level,fmt,...) [[DBLogCollectKit sharedInstance] logWithLevel:level format:@"%s:%d " fmt, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__]
 
 @interface DBLogCollectKit : NSObject
 
-@property(nonatomic,strong)DBLogerConfigure *configure;
 DECLARE_SINGLETON(DBLogCollectKit)
 // 设置默认的配置
-- (void)configureDefault;
+- (void)configureDefaultWithCrashLogLevel:(DBLogLevel)level;
 
-// 需要配置日志的基本信息
-- (void)configureServiceInfo:(DBLogerConfigure *)model;
+/// get current log configure
+- (DBLogerConfigure *)getCurrentConfigure;
+
+// set the configure info to the man
+- (void)setConfigureServiceInfo:(DBLogerConfigure *)model;
 
 /// 打印日志信息
 - (void)logWithLevel:(DBLogLevel)level format:(NSString *)format, ... NS_FORMAT_FUNCTION(2, 3);

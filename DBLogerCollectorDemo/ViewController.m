@@ -6,7 +6,6 @@
 //
 
 #import "ViewController.h"
-#import "DBNetworkHelper.h"
 #import "DBLogCollectKit.h"
 
 @interface ViewController ()
@@ -25,9 +24,11 @@
 
 - (void)uploadLogInfo {
     DBLogCollectKit *collectKit = [DBLogCollectKit sharedInstance];
-    [collectKit configureDefault];
-//    [collectKit logMessageWithLevel:DBLogLevelDebug message:@"this is a test case"];
-    DBCollectLog(DBLogLevelDebug, @"123--%@",@(456));
+    [collectKit configureDefaultWithCrashLogLevel:DBLogLevelError];
+    DBLogerConfigure *configure = [collectKit getCurrentConfigure];
+    configure.userId = @"1234";
+    [collectKit setConfigureServiceInfo:configure];
+    DBCollectLog(DBLogLevelInfo, @"123--%@",@(456));
     
 //    NSArray *array = @[];
 //    array[1];

@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DBUncaughtExceptionHandler : NSObject
+@interface DBFUncaughtExceptionHandler : NSObject
 
 /**
  日志文件路径
@@ -23,5 +23,5 @@
 
 //void HandleException(NSException *exception);
 //void SignalHandler(int signal);
-DBUncaughtExceptionHandler* DBInstallUncaughtExceptionHandler(void);
+DBFUncaughtExceptionHandler* DBInstallUncaughtExceptionHandler(void);
 @end

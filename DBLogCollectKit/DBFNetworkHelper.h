@@ -19,12 +19,10 @@
 #if DevelopSever_log
 
 #define DB_UploadUrlString  @"https://openapitest.data-baker.com/logapp/log/uploadLog"
-
 // 正式环节
 #elif ProductSever_log
 
 #define DB_UploadUrlString  @"https://openapitest.data-baker.com/logapp/log/uploadLog"
-
 #endif
 
 
@@ -34,7 +32,7 @@ typedef void (^DBCompletioBlock)(NSDictionary *dic, NSURLResponse *response, NSE
 typedef void (^DBSuccessBlock)(NSDictionary *data);
 typedef void (^DBFailureBlock)(NSError *error);
 
-@interface DBNetworkHelper : NSObject
+@interface DBFNetworkHelper : NSObject
 /**
  *  get请求
  */

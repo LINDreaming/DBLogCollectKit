@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
     }
 #endif
 
-@interface DBCommonConst : NSObject
+@interface DBFCommonConst : NSObject
 
 + (NSString *)currentTimeString;
 
