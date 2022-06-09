@@ -28,7 +28,7 @@
     DBLogerConfigure *configure = [collectKit getCurrentConfigure];
     configure.userId = @"1234";
     [collectKit setConfigureServiceInfo:configure];
-    DBCollectLog(DBLogLevelInfo, @"123--%@",@(456));
+    DBCollectLog(DBLogLevelWarning, @"123--%@",@(456));
     
 //    NSArray *array = @[];
 //    array[1];
