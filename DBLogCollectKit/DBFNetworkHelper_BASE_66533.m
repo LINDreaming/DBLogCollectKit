@@ -10,7 +10,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "NSString+DBCrypto.h"
 #import "DBLogerConfigure.h"
-#import "DBFDateFormatter.h"
+#import "DBFCommonConst.h"
 
 static NSString *DBUploadBoundary = @"DBUploadBoundary";
 #define DBEncode(string) [string dataUsingEncoding:NSUTF8StringEncoding]
@@ -195,8 +195,8 @@ static NSString *DBUploadBoundary = @"DBUploadBoundary";
 }
 
 + (void)uploadLevel:(DBLogLevel)level userMsg:(NSString *)msg  {
-    NSString *content = [NSString stringWithFormat:@"%@:%@",[DBFDateFormatter currentTimeString],msg];
-    NSString *time = [[DBLogerConfigure sharedInstance] time];
+    NSString *content = [NSString stringWithFormat:@"%@:%@",[DBFCommonConst currentTimeString],msg];
+    NSString *time = [DBLogerConfigure sharedInstance].time;
     NSDictionary *parameters = [self getBodyInfoWithLevel:level content:content time:time];
     NSString *auths = [self getAuthStringWithWithLevel:level content:msg time:time];
     [self log_postWithAuth:auths witDictionary:parameters success:^(NSDictionary * _Nonnull data) {
@@ -204,9 +204,11 @@ static NSString *DBUploadBoundary = @"DBUploadBoundary";
     } failure:^(NSError * _Nonnull error) {
         NSLog(@"error:%@",error.description);
     }];
+
 }
 
 + (void)log_postWithAuth:(NSString *)auth witDictionary:(NSDictionary *)params success:(DBSuccessBlock)successBlock failure:(DBFailureBlock)failureBlock{
+    
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:[NSURL URLWithString:DB_UploadUrlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     //设置请求类型
     request.HTTPMethod = @"POST";
@@ -239,7 +241,7 @@ static NSString *DBUploadBoundary = @"DBUploadBoundary";
 
 + (NSDictionary *)getBodyInfoWithLevel:(DBLogLevel)level content:(NSString *)content time:(NSString *)time{
     NSDictionary *configureDict = [self getConfigureDictionaryWithLevel:level content:content time:time];
-    NSDictionary *baseDict = [KDBLogerConfigure getBaseInfoDictionary];
+    NSDictionary *baseDict = [self getBaseInfoDictionary];
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:configureDict];
     [mutableDictionary setObject:baseDict forKey:@"baseInfo"];
     return mutableDictionary;
@@ -247,7 +249,7 @@ static NSString *DBUploadBoundary = @"DBUploadBoundary";
 
 + (NSString *)getAuthStringWithWithLevel:(DBLogLevel)level content:(NSString *)content time:(NSString *)time {
     NSDictionary *configureDict = [self getConfigureDictionaryWithLevel:level content:content time:time];
-    NSDictionary *baseDict = [KDBLogerConfigure getBaseInfoDictionary];
+    NSDictionary *baseDict = [self getBaseInfoDictionary];
     NSMutableDictionary *mutableDictionary = [NSMutableDictionary dictionaryWithDictionary:configureDict];
     [mutableDictionary addEntriesFromDictionary:baseDict];
     [mutableDictionary removeObjectForKey:@"contentList"];
@@ -281,7 +283,17 @@ static NSString *DBUploadBoundary = @"DBUploadBoundary";
     return string;
 }
 
-
++ (NSDictionary *)getBaseInfoDictionary {
+    DBLogerConfigure *loger = [DBLogerConfigure sharedInstance];
+    NSDictionary *params = @{
+        @"systemVersion":loger.systemVersion,
+        @"appVersion":loger.appVersion,
+        @"appName":loger.appName,
+        @"language":loger.language,
+        @"appSystemVersion":loger.appSystemVersion
+    };
+    return params;
+}
 
 
 

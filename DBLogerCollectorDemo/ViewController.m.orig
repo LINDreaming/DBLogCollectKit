@@ -28,10 +28,15 @@ static NSString *KSha256 =  @"18sMTZ4tzrGwf11NloSWCyEHUip7Xhmgu2O37RILa0ceIkP1qx
     DBLogCollectKit *collectKit = [DBLogCollectKit sharedInstance];
     [collectKit configureDefaultWithCrashLogLevel:DBLogLevelError];
     DBLogerConfigure *configure = [collectKit getCurrentConfigure];
+<<<<<<< HEAD
     NSString *userId = @"123";
     [configure setConfigureWithUserId:userId appName:@"AuduioSDK" appVersion:@"1.1.0" businessType:@"bbyy-sdk-ios" shaKey:KSha256];
     DBCollectLog(DBLogLevelError, @"this is a test Message: 123--%@",@(456));
-
+=======
+    configure.userId = @"1234";
+    [collectKit setConfigureServiceInfo:configure];
+    DBCollectLog(DBLogLevelWarning, @"123--%@",@(456));
+>>>>>>> 7f5200e174af0a1659aedfdf47353177271c66f5
     
 //    NSArray *array = @[];
 //    array[1];
