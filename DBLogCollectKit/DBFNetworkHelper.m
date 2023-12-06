@@ -195,8 +195,14 @@ static NSString *DBUploadBoundary = @"DBUploadBoundary";
 }
 
 + (void)uploadLevel:(DBLogLevel)level userMsg:(NSString *)msg  {
+<<<<<<< HEAD
     NSString *content = [NSString stringWithFormat:@"%@:%@",[DBFDateFormatter currentTimeString],msg];
     NSString *time = [[DBLogerConfigure sharedInstance] time];
+=======
+    NSString *leveStr = [self levelStringWithLevel:level];
+    NSString *content = [NSString stringWithFormat:@"%@:[%@]:{%@}",[DBFCommonConst currentTimeString],leveStr,msg];
+    NSString *time = [DBLogerConfigure sharedInstance].time;
+>>>>>>> 7f5200e174af0a1659aedfdf47353177271c66f5
     NSDictionary *parameters = [self getBodyInfoWithLevel:level content:content time:time];
     NSString *auths = [self getAuthStringWithWithLevel:level content:msg time:time];
     [self log_postWithAuth:auths witDictionary:parameters success:^(NSDictionary * _Nonnull data) {
