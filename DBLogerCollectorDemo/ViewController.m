@@ -8,7 +8,6 @@
 #import "ViewController.h"
 #import "DBLogCollectKit.h"
 
-static NSString *KSha256 =  @"18sMTZ4tzrGwf11NloSWCyEHUip7Xhmgu2O37RILa0ceIkP1qxVvFTAbBdJKQo";
 
 @interface ViewController ()
 
