@@ -26,10 +26,11 @@ dispatch_once( &once, ^{ __singleton__ = [[[self class] alloc] init]; } ); \
 return __singleton__; \
 }
 
+#define KDBLogerConfigure [DBLogerConfigure sharedInstance]
+
+
 
 #import <Foundation/Foundation.h>
-
-
 
 
 
@@ -37,31 +38,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DBLogerConfigure : NSObject
 
-/// 系统版本号
-@property(nonatomic,copy)NSString * systemVersion;
-/// app版本号
-@property(nonatomic,copy)NSString * appVersion;
-/// app的名称
-@property(nonatomic,copy)NSString * appName;
-/// 系统语言
-@property(nonatomic,copy)NSString * language;
-
-/// app版本号
-@property(nonatomic,copy)NSString * appSystemVersion;
-
-/// 时间戳，到毫秒
-@property(nonatomic,assign)NSString * time;
-
 /// 用户Id
-@property(nonatomic,assign)NSString *  userId;
-
+@property(nonatomic,copy,readonly)NSString *  userId;
 // 业务类型
-@property(nonatomic,copy)NSString * businessType;
+@property(nonatomic,copy,readonly)NSString * businessType;
+// shaKey
+@property(nonatomic,copy,readonly)NSString * shaKey;
 
+// YES： 打开日志， NO： 关闭日志
+@property(nonatomic,assign)BOOL enableLog;
 
 DECLARE_SINGLETON(DBLogerConfigure);
 
-- (void)setDefaultConfigure;
+
+- (NSString *)time;
+
+- (NSDictionary *)getBaseInfoDictionary;
+
+/// 本地默认生成的UserId
+- (NSString *)getCollectKitUserId;
+
+- (void)setConfigureWithUserId:(NSString *)userId
+                       appName:(NSString *)appName
+                    appVersion:(NSString *)appVersion
+                  businessType:(NSString *)businessType
+                        shaKey:(NSString *)shaKey;
+
+
 
 @end
 

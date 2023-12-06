@@ -2,13 +2,13 @@
 //  DBCommonConst.m
 //  DBSocketRocketKit
 //
-//  Created by 李明辉 on 2020/8/31.
+//  Created by linxi on 2020/8/31.
 //  Copyright © 2020 biaobei. All rights reserved.
 //
 
-#import "DBFCommonConst.h"
+#import "DBFDateFormatter.h"
 
-@implementation DBFCommonConst
+@implementation DBFDateFormatter
 
 + (NSString *)currentTimeString {
     //时间格式化

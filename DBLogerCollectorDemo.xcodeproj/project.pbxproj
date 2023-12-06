@@ -6,6 +6,20 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		35A65C462848CD0B0089B153 /* DBLogAggregate */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 35A65C492848CD0B0089B153 /* Build configuration list for PBXAggregateTarget "DBLogAggregate" */;
+			buildPhases = (
+				35A65C4A2848CE2B0089B153 /* Run Script */,
+			);
+			dependencies = (
+			);
+			name = DBLogAggregate;
+			productName = DBLogAggregate;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1DC9F7EA28193A4100EA4333 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F7E928193A4100EA4333 /* AppDelegate.m */; };
 		1DC9F7ED28193A4100EA4333 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F7EC28193A4100EA4333 /* SceneDelegate.m */; };
@@ -20,12 +34,13 @@
 		1DC9F81528193BA300EA4333 /* DBFNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F81028193BA300EA4333 /* DBFNetworkHelper.m */; };
 		1DC9F81628193BA300EA4333 /* DBLogerConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9F81328193BA300EA4333 /* DBLogerConfigure.m */; };
 		1DCDF058282A13050065D91A /* NSString+DBCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDF057282A13050065D91A /* NSString+DBCrypto.m */; };
-		1DE0847D2832249A00A45F37 /* DBFCommonConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0847C2832249A00A45F37 /* DBFCommonConst.m */; };
+		1DE0847D2832249A00A45F37 /* DBFDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0847C2832249A00A45F37 /* DBFDateFormatter.m */; };
 		1DE0848028322FE300A45F37 /* libDBLogCollectKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC9F80528193A6C00EA4333 /* libDBLogCollectKit.a */; };
 		1DE0848328323EC000A45F37 /* ZXPUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0848128323EC000A45F37 /* ZXPUnicode.m */; };
 		1DE0848928326B6E00A45F37 /* DBPermanentThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DE0848828326B6E00A45F37 /* DBPermanentThread.m */; };
 		1DE0848A283355C300A45F37 /* DBEnmerator.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 1DE0847E2832259B00A45F37 /* DBEnmerator.h */; };
 		1DE0848B283374BE00A45F37 /* DBLogerConfigure.h in Copy Files */ = {isa = PBXBuildFile; fileRef = 1DC9F81228193BA300EA4333 /* DBLogerConfigure.h */; };
+		3569508E2B204F9E006CCCDD /* DBLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3569508C2B204F9E006CCCDD /* DBLogManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,13 +84,15 @@
 		1DCDF055282A0F740065D91A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1DCDF056282A13050065D91A /* NSString+DBCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DBCrypto.h"; sourceTree = "<group>"; };
 		1DCDF057282A13050065D91A /* NSString+DBCrypto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DBCrypto.m"; sourceTree = "<group>"; };
-		1DE0847B2832249A00A45F37 /* DBFCommonConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFCommonConst.h; sourceTree = "<group>"; };
-		1DE0847C2832249A00A45F37 /* DBFCommonConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFCommonConst.m; sourceTree = "<group>"; };
+		1DE0847B2832249A00A45F37 /* DBFDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBFDateFormatter.h; sourceTree = "<group>"; };
+		1DE0847C2832249A00A45F37 /* DBFDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBFDateFormatter.m; sourceTree = "<group>"; };
 		1DE0847E2832259B00A45F37 /* DBEnmerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBEnmerator.h; sourceTree = "<group>"; };
 		1DE0848128323EC000A45F37 /* ZXPUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXPUnicode.m; sourceTree = "<group>"; };
 		1DE0848228323EC000A45F37 /* ZXPUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXPUnicode.h; sourceTree = "<group>"; };
 		1DE0848728326B6E00A45F37 /* DBPermanentThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPermanentThread.h; sourceTree = "<group>"; };
 		1DE0848828326B6E00A45F37 /* DBPermanentThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPermanentThread.m; sourceTree = "<group>"; };
+		3569508C2B204F9E006CCCDD /* DBLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBLogManager.m; sourceTree = "<group>"; };
+		3569508D2B204F9E006CCCDD /* DBLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBLogManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +157,8 @@
 		1DC9F80628193A6C00EA4333 /* DBLogCollectKit */ = {
 			isa = PBXGroup;
 			children = (
+				3569508D2B204F9E006CCCDD /* DBLogManager.h */,
+				3569508C2B204F9E006CCCDD /* DBLogManager.m */,
 				1DC9F80728193A6C00EA4333 /* DBLogCollectKit.h */,
 				1DC9F80828193A6C00EA4333 /* DBLogCollectKit.m */,
 				1DCDF056282A13050065D91A /* NSString+DBCrypto.h */,
@@ -150,8 +169,8 @@
 				1DC9F81028193BA300EA4333 /* DBFNetworkHelper.m */,
 				1DC9F81128193BA300EA4333 /* DBFUncaughtExceptionHandler.h */,
 				1DC9F80E28193BA300EA4333 /* DBFUncaughtExceptionHandler.m */,
-				1DE0847B2832249A00A45F37 /* DBFCommonConst.h */,
-				1DE0847C2832249A00A45F37 /* DBFCommonConst.m */,
+				1DE0847B2832249A00A45F37 /* DBFDateFormatter.h */,
+				1DE0847C2832249A00A45F37 /* DBFDateFormatter.m */,
 				1DE0848728326B6E00A45F37 /* DBPermanentThread.h */,
 				1DE0848828326B6E00A45F37 /* DBPermanentThread.m */,
 				1DE0847E2832259B00A45F37 /* DBEnmerator.h */,
@@ -218,6 +237,9 @@
 					1DC9F80428193A6C00EA4333 = {
 						CreatedOnToolsVersion = 13.3;
 					};
+					35A65C462848CD0B0089B153 = {
+						CreatedOnToolsVersion = 13.0;
+					};
 				};
 			};
 			buildConfigurationList = 1DC9F7E028193A4100EA4333 /* Build configuration list for PBXProject "DBLogerCollectorDemo" */;
@@ -235,6 +257,7 @@
 			targets = (
 				1DC9F7E428193A4100EA4333 /* DBLogerCollectorDemo */,
 				1DC9F80428193A6C00EA4333 /* DBLogCollectKit */,
+				35A65C462848CD0B0089B153 /* DBLogAggregate */,
 			);
 		};
 /* End PBXProject section */
@@ -251,6 +274,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35A65C4A2848CE2B0089B153 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\n# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# Step 1. Build Device and Simulator versions\n\nxcodebuild -target DBLogCollectKit ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target DBLogCollectKit ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphonesimulator BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n#lipo \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/libDBLogCollectKit.a\" -remove arm64 -output  \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/libDBLogCollectKit.a\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/libDBLogCollectKit.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/libDBLogCollectKit.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/libDBLogCollectKit.a\"\n\nech \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/libDBLogCollectKit.a\"\n# Last touch. copy the header files. Just for convenience\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\nopen \"${UNIVERSAL_OUTPUT_FOLDER}\"\n\n\n\n\n\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1DC9F7E128193A4100EA4333 /* Sources */ = {
@@ -272,7 +316,8 @@
 				1DC9F80928193A6C00EA4333 /* DBLogCollectKit.m in Sources */,
 				1DE0848928326B6E00A45F37 /* DBPermanentThread.m in Sources */,
 				1DCDF058282A13050065D91A /* NSString+DBCrypto.m in Sources */,
-				1DE0847D2832249A00A45F37 /* DBFCommonConst.m in Sources */,
+				1DE0847D2832249A00A45F37 /* DBFDateFormatter.m in Sources */,
+				3569508E2B204F9E006CCCDD /* DBLogManager.m in Sources */,
 				1DC9F81628193BA300EA4333 /* DBLogerConfigure.m in Sources */,
 				1DC9F81528193BA300EA4333 /* DBFNetworkHelper.m in Sources */,
 				1DC9F81428193BA300EA4333 /* DBFUncaughtExceptionHandler.m in Sources */,
@@ -426,7 +471,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,7 +500,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,7 +519,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6K53WJAQ2L;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -487,11 +532,31 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6K53WJAQ2L;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		35A65C472848CD0B0089B153 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TL3V32Q3BC;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		35A65C482848CD0B0089B153 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TL3V32Q3BC;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -521,6 +586,15 @@
 			buildConfigurations = (
 				1DC9F80C28193A6C00EA4333 /* Debug */,
 				1DC9F80D28193A6C00EA4333 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35A65C492848CD0B0089B153 /* Build configuration list for PBXAggregateTarget "DBLogAggregate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35A65C472848CD0B0089B153 /* Debug */,
+				35A65C482848CD0B0089B153 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -2,7 +2,7 @@
 //  DBCommonConst.h
 //  DBSocketRocketKit
 //
-//  Created by 李明辉 on 2020/8/31.
+//  Created by linxi on 2020/8/31.
 //  Copyright © 2020 biaobei. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
     }
 #endif
 
-@interface DBFCommonConst : NSObject
+@interface DBFDateFormatter : NSObject
 
 + (NSString *)currentTimeString;
 

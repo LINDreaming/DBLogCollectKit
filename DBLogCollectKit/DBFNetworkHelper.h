@@ -10,8 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "DBEnmerator.h"
 
-
-
 #define DevelopSever_log 0
 #define ProductSever_log 1
 

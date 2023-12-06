@@ -6,10 +6,10 @@
 //
 
 #import "NSString+DBCrypto.h"
+#import "DBLogerConfigure.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
 
-static NSString *sha256 =  @"15sMTZ4tzrGwf28NloSWCyEHUipnXhmgu9O37RDLa0ceIkP6qxVvFYAbBdJKQj";
 
 @implementation NSString (DBCrypto)
 
@@ -43,7 +43,7 @@ static NSString *sha256 =  @"15sMTZ4tzrGwf28NloSWCyEHUipnXhmgu9O37RDLa0ceIkP6qxV
 }
 
 + (NSString *)sha256StringWithText:(NSString *)text {
-    NSString *secretString = [self hmac:text withKey:sha256];
+    NSString *secretString = [self hmac:text withKey:KDBLogerConfigure.shaKey];
     return secretString;
 }
 // enmerator the dictionary by order https://stackoverflow.com/questions/17960068/with-fast-enumeration-and-an-nsdictionary-iterating-in-the-order-of-the-keys-is

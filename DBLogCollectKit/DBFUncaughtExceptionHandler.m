@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #include <libkern/OSAtomic.h>
 #include <execinfo.h>
-#import "DBFCommonConst.h"
+#import "DBFDateFormatter.h"
 #import "DBLogCollectKit.h"
 
 
@@ -61,7 +61,7 @@ static NSUncaughtExceptionHandler *_previousHandler;
     if (![fileManager fileExistsAtPath:_logFilePath]) {
         [fileManager createFileAtPath:_logFilePath contents:[@">>>>>>>程序异常日志<<<<<<<<\n" dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
     }
-    NSString *exceptionMessage = [NSString stringWithFormat:NSLocalizedString(@"\n********** %@ 异常原因如下: **********\n%@\n%@\n========== End ==========\n", nil), [DBFCommonConst currentTimeString], [exception reason], [exception callStackSymbols]];
+    NSString *exceptionMessage = [NSString stringWithFormat:NSLocalizedString(@"\n********** %@ 异常原因如下: **********\n%@\n%@\n========== End ==========\n", nil), [DBFDateFormatter currentTimeString], [exception reason], [exception callStackSymbols]];
     // 4.创建文件对接对象,文件对象此时针对文件，可读可写
     NSFileHandle *handle = [NSFileHandle fileHandleForUpdatingAtPath:_logFilePath];
     [handle seekToEndOfFile];
@@ -124,7 +124,6 @@ void DB_HandleException(NSException *exception) {
 //    NSArray *callStack = [DBUncaughtExceptionHandler backtrace];
 //    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:[exception userInfo]];
 //    [userInfo setObject:callStack forKey:DBUncaughtExceptionHandlerAddressesKey];
-//    [[DBUncaughtExceptionHandler shareInstance] performSelectorOnMainThread:@selector(db_handleException:) withObject: [NSException exceptionWithName:[exception name] reason:[exception reason] userInfo:userInfo] waitUntilDone:YES];
     [[DBFUncaughtExceptionHandler shareInstance] db_handleException:exception];
 }
 void DBSignalHandler(int signal) {

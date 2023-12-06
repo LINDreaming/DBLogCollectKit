@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)executeTask:(DBPermanentThreadTask)task;
 
-
 @end
 
 NS_ASSUME_NONNULL_END
